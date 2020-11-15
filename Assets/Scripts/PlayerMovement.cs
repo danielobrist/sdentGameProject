@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
+        rbody.AddForce(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f)));
+        rbody.AddTorque(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f)));
     }
 
 
@@ -18,20 +20,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("w"))
         {
-            rbody.AddForce(new Vector3(0, 1, 0)); 
+            rbody.AddForce(new Vector3(0f, 1f, 0f)); 
         }
         if (Input.GetKey("s"))
         {
-            rbody.AddForce(new Vector3(0, -1, 0));
+            rbody.AddForce(new Vector3(0f, -1f, 0f));
         }
         if (Input.GetKey("a"))
         {
-            rbody.AddForce(new Vector3(-1, 0, 0));
-
+            rbody.AddForce(new Vector3(-1f, 0f, 0f));
         }
         if (Input.GetKey("d"))
         {
-            rbody.AddForce(new Vector3(1, 0, 0));
+            rbody.AddForce(new Vector3(1f, 0f, 0f));
         }
 
 
