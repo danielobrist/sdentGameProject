@@ -7,6 +7,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rbody;
     public float torque;
 
+    private bool moveUp;
+    private bool moveDown;
+    private bool moveLeft;
+    private bool moveRight;
+    private bool rotateLeft;
+    private bool rotateRight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,27 +28,62 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("w"))
         {
-            rbody.AddForce(Vector3.up); 
+            moveUp = true;
         }
         if (Input.GetKey("s"))
         {
-            rbody.AddForce(Vector3.down);
+            moveDown = true;
         }
         if (Input.GetKey("a"))
         {
-            rbody.AddForce(Vector3.left);
+            moveLeft = true;
         }
         if (Input.GetKey("d"))
         {
-            rbody.AddForce(Vector3.right);
+            moveRight = true;
         }
         if (Input.GetKey("c"))
         {
-            rbody.AddRelativeTorque(Vector3.up * 0.1f);
+            rotateLeft = true;
         }
         if (Input.GetKey("v"))
         {
             rbody.AddRelativeTorque(Vector3.down * 0.1f);
+        }
+    }
+
+    // Called every physics update
+    private void FixedUpdate()
+    {
+        if (moveUp)
+        {
+            rbody.AddForce(Vector3.up);
+            moveUp = false;
+        }
+        if (moveDown)
+        {
+            rbody.AddForce(Vector3.down);
+            moveDown = false;
+        }
+        if (moveLeft)
+        {
+            rbody.AddForce(Vector3.left);
+            moveLeft = false;
+        }
+        if (moveRight)
+        {
+            rbody.AddForce(Vector3.right);
+            moveRight = false;
+        }
+        if (rotateLeft)
+        {
+            rbody.AddRelativeTorque(Vector3.up * 0.1f);
+            rotateLeft = false;
+        }
+        if (rotateRight)
+        {
+            rbody.AddRelativeTorque(Vector3.down * 0.1f);
+            rotateRight = false;
         }
     }
 
