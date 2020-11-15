@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-	private CharacterController controller;
     private Rigidbody rbody;
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<CharacterController>();
         rbody = GetComponent<Rigidbody>();
     }
 
