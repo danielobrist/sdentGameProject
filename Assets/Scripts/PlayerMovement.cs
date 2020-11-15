@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey("v"))
         {
-            rbody.AddRelativeTorque(Vector3.down * 0.1f);
+            rotateRight = true;
         }
     }
 
