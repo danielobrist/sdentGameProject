@@ -3,24 +3,23 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-		private Animator anim;
 		private CharacterController controller;
+	private Rigidbody rbody;
+	private Animation anim;
 
 		public float speed = 600.0f;
 		public float turnSpeed = 400.0f;
 		private Vector3 moveDirection = Vector3.zero;
-		public float gravity = 20.0f;
+		public float gravity = 20f;
 
 		void Start () {
 			controller = GetComponent <CharacterController>();
-			anim = gameObject.GetComponentInChildren<Animator>();
 		}
 
 		void Update (){
 			if (Input.GetKey ("w")) {
-				anim.SetInteger ("AnimationPar", 1);
+				
 			}  else {
-				anim.SetInteger ("AnimationPar", 0);
 			}
 
 			if(controller.isGrounded){
