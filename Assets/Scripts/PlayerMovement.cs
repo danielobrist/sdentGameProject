@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private bool moveRight;
     private bool rotateLeft;
     private bool rotateRight;
+    private bool boost;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rotateRight = true;
         }
+
     }
 
     // Called every physics update
