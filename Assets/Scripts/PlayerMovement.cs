@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private bool rotateRight;
     private bool boost;
 
-    private float energy = 100f;
-    private float energy_step = 0.5f;
+    public float energy = 100f;
+    public float energy_step = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -63,56 +63,108 @@ public class PlayerMovement : MonoBehaviour
     // Called every physics update
     private void FixedUpdate()
     {
-        // Beschleunigunswert abziehen von Stickstoff
-        oxygen.transform.Find("level.000").gameObject.SetActive(false);
-        oxygen.transform.Find("level.001").gameObject.SetActive(false);
 
         if (moveUp)
         {
             rbody.AddForce(Vector3.up);
             //- Energy steps
             energy -= energy_step;
-            //System.Console.WriteLine("energy: " + energy);
-            Debug.Log("energy: " + energy);
+            ShowNitrogen(energy);
             moveUp = false;
         }
         if (moveDown)
         {
             rbody.AddForce(Vector3.down);
+            //- Energy steps
             energy -= energy_step;
-            //System.Console.WriteLine("energy: " + energy);
-            Debug.Log("energy: " + energy);
+            ShowNitrogen(energy);
             moveDown = false;
         }
         if (moveLeft)
         {
             rbody.AddForce(Vector3.left);
+            //- Energy steps
             energy -= energy_step;
-            System.Console.WriteLine("energy: " + energy);
+            ShowNitrogen(energy);
             moveLeft = false;
         }
         if (moveRight)
         {
             rbody.AddForce(Vector3.right);
+            //- Energy steps
             energy -= energy_step;
-            System.Console.WriteLine("energy: " + energy);
+            ShowNitrogen(energy);
             moveRight = false;
         }
         if (rotateLeft)
         {
             rbody.AddRelativeTorque(Vector3.up * 0.1f);
+            //- Energy steps
             energy -= energy_step;
-            System.Console.WriteLine("energy: " + energy);
+            ShowNitrogen(energy);
             rotateLeft = false;
         }
         if (rotateRight)
         {
             rbody.AddRelativeTorque(Vector3.down * 0.1f);
+            //- Energy steps
             energy -= energy_step;
-            System.Console.WriteLine("energy: " + energy);
+            ShowNitrogen(energy);
             rotateRight = false;
         }
     }
 
+
+    private void ShowNitrogen(float value)
+    {
+        if (value % 10 == 0)
+        {
+            switch (value)
+            {
+                case 90:
+                    oxygen.transform.Find("level.009").gameObject.SetActive(false);
+                    break;
+                case 80:
+                    oxygen.transform.Find("level.008").gameObject.SetActive(false);
+                    break;
+                case 70:
+                    oxygen.transform.Find("level.007").gameObject.SetActive(false);
+                    break;
+                case 60:
+                    oxygen.transform.Find("level.006").gameObject.SetActive(false);
+                    break;
+                case 50:
+                    oxygen.transform.Find("level.005").gameObject.SetActive(false);
+                    break;
+                case 40:
+                    oxygen.transform.Find("level.004").gameObject.SetActive(false);
+                    break;
+                case 30:
+                    oxygen.transform.Find("level.003").gameObject.SetActive(false);
+                    break;
+                case 20:
+                    oxygen.transform.Find("level.002").gameObject.SetActive(false);
+                    break;
+                case 10:
+                    oxygen.transform.Find("level.001").gameObject.SetActive(false);
+                    break;
+                case 0:
+                    oxygen.transform.Find("level.000").gameObject.SetActive(false);
+                    break;
+                case 100:
+                    oxygen.transform.Find("level.000").gameObject.SetActive(true);
+                    oxygen.transform.Find("level.001").gameObject.SetActive(true);
+                    oxygen.transform.Find("level.002").gameObject.SetActive(true);
+                    oxygen.transform.Find("level.003").gameObject.SetActive(true);
+                    oxygen.transform.Find("level.004").gameObject.SetActive(true);
+                    oxygen.transform.Find("level.005").gameObject.SetActive(true);
+                    oxygen.transform.Find("level.006").gameObject.SetActive(true);
+                    oxygen.transform.Find("level.007").gameObject.SetActive(true);
+                    oxygen.transform.Find("level.008").gameObject.SetActive(true);
+                    oxygen.transform.Find("level.009").gameObject.SetActive(true);
+                    break;
+            }
+        }
+    }
 }
 
