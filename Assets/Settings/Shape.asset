@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64be846507d733d489dc8839141bdab2, type: 3}
   m_Name: Shape
   m_EditorClassIdentifier: 
-  asteroidRadius: 0.54
+  asteroidRadius: 1
   noiseSettings:
-    strength: 1.31
-    roughness: 1.19
-    center: {x: 0, y: -0.7, z: 0}
+    strength: 1
+    roughness: 1
+    center: {x: 0, y: 0, z: 0}
