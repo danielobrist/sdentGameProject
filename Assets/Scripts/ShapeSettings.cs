@@ -6,4 +6,5 @@ using UnityEngine;
 public class ShapeSettings : ScriptableObject
 {
     public float asteroidRadius = 1;
+    public NoiseSettings noiseSettings;
 }
