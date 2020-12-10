@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private bool boost;
 
     public float energy = 100f;
-    public float energy_step = 0.5f;
+    public float energy_step = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -117,53 +118,111 @@ public class PlayerMovement : MonoBehaviour
 
     private void ShowNitrogen(float value)
     {
-        if (value % 10 == 0)
+        if (value >= 0)
         {
-            switch (value)
+
+            oxygen.transform.Find("level.000").gameObject.SetActive(true);
+            oxygen.transform.Find("level.001").gameObject.SetActive(true);
+            oxygen.transform.Find("level.002").gameObject.SetActive(true);
+            oxygen.transform.Find("level.003").gameObject.SetActive(true);
+            oxygen.transform.Find("level.004").gameObject.SetActive(true);
+            oxygen.transform.Find("level.005").gameObject.SetActive(true);
+            oxygen.transform.Find("level.006").gameObject.SetActive(true);
+            oxygen.transform.Find("level.007").gameObject.SetActive(true);
+            oxygen.transform.Find("level.008").gameObject.SetActive(true);
+            oxygen.transform.Find("level.009").gameObject.SetActive(true);
+
+            if (value < 90)
             {
-                case 90:
-                    oxygen.transform.Find("level.009").gameObject.SetActive(false);
-                    break;
-                case 80:
+                oxygen.transform.Find("level.009").gameObject.SetActive(false);
+                if (value < 80)
+                {
                     oxygen.transform.Find("level.008").gameObject.SetActive(false);
-                    break;
-                case 70:
-                    oxygen.transform.Find("level.007").gameObject.SetActive(false);
-                    break;
-                case 60:
-                    oxygen.transform.Find("level.006").gameObject.SetActive(false);
-                    break;
-                case 50:
-                    oxygen.transform.Find("level.005").gameObject.SetActive(false);
-                    break;
-                case 40:
-                    oxygen.transform.Find("level.004").gameObject.SetActive(false);
-                    break;
-                case 30:
-                    oxygen.transform.Find("level.003").gameObject.SetActive(false);
-                    break;
-                case 20:
-                    oxygen.transform.Find("level.002").gameObject.SetActive(false);
-                    break;
-                case 10:
-                    oxygen.transform.Find("level.001").gameObject.SetActive(false);
-                    break;
-                case 0:
-                    oxygen.transform.Find("level.000").gameObject.SetActive(false);
-                    break;
-                case 100:
-                    oxygen.transform.Find("level.000").gameObject.SetActive(true);
-                    oxygen.transform.Find("level.001").gameObject.SetActive(true);
-                    oxygen.transform.Find("level.002").gameObject.SetActive(true);
-                    oxygen.transform.Find("level.003").gameObject.SetActive(true);
-                    oxygen.transform.Find("level.004").gameObject.SetActive(true);
-                    oxygen.transform.Find("level.005").gameObject.SetActive(true);
-                    oxygen.transform.Find("level.006").gameObject.SetActive(true);
-                    oxygen.transform.Find("level.007").gameObject.SetActive(true);
-                    oxygen.transform.Find("level.008").gameObject.SetActive(true);
-                    oxygen.transform.Find("level.009").gameObject.SetActive(true);
-                    break;
+                    if (value < 70)
+                    {
+                        oxygen.transform.Find("level.007").gameObject.SetActive(false);
+                        if (value < 60)
+                        {
+                            oxygen.transform.Find("level.006").gameObject.SetActive(false);
+                            if (value < 50)
+                            {
+                                oxygen.transform.Find("level.005").gameObject.SetActive(false);
+                                if (value < 40)
+                                {
+                                    oxygen.transform.Find("level.004").gameObject.SetActive(false);
+                                    if (value < 30)
+                                    {
+                                        oxygen.transform.Find("level.003").gameObject.SetActive(false);
+                                        if (value < 20)
+                                        {
+                                            oxygen.transform.Find("level.002").gameObject.SetActive(false);
+                                            if (value < 10)
+                                            {
+                                                oxygen.transform.Find("level.001").gameObject.SetActive(false);
+                                                if (value < 4)
+                                                {
+                                                    oxygen.transform.Find("level.000").gameObject.SetActive(false);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
+
+          
+            //switch (value)
+            //{
+            //    case 90:
+            //        oxygen.transform.Find("level.009").gameObject.SetActive(false);
+            //        break;
+            //    case 80:
+            //        oxygen.transform.Find("level.008").gameObject.SetActive(false);
+            //        break;
+            //    case 70:
+            //        oxygen.transform.Find("level.007").gameObject.SetActive(false);
+            //        break;
+            //    case 60:
+            //        oxygen.transform.Find("level.006").gameObject.SetActive(false);
+            //        break;
+            //    case 50:
+            //        oxygen.transform.Find("level.005").gameObject.SetActive(false);
+            //        break;
+            //    case 40:
+            //        oxygen.transform.Find("level.004").gameObject.SetActive(false);
+            //        break;
+            //    case 30:
+            //        oxygen.transform.Find("level.003").gameObject.SetActive(false);
+            //        break;
+            //    case 20:
+            //        oxygen.transform.Find("level.002").gameObject.SetActive(false);
+            //        break;
+            //    case 10:
+            //        oxygen.transform.Find("level.001").gameObject.SetActive(false);
+            //        break;
+            //    case 0:
+            //        oxygen.transform.Find("level.000").gameObject.SetActive(false);
+            //        break;
+            //    case 100:
+            //        oxygen.transform.Find("level.000").gameObject.SetActive(true);
+            //        oxygen.transform.Find("level.001").gameObject.SetActive(true);
+            //        oxygen.transform.Find("level.002").gameObject.SetActive(true);
+            //        oxygen.transform.Find("level.003").gameObject.SetActive(true);
+            //        oxygen.transform.Find("level.004").gameObject.SetActive(true);
+            //        oxygen.transform.Find("level.005").gameObject.SetActive(true);
+            //        oxygen.transform.Find("level.006").gameObject.SetActive(true);
+            //        oxygen.transform.Find("level.007").gameObject.SetActive(true);
+            //        oxygen.transform.Find("level.008").gameObject.SetActive(true);
+            //        oxygen.transform.Find("level.009").gameObject.SetActive(true);
+            //        break;
+            //}
+        }
+        else {
+            // Back to Startmenu
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
