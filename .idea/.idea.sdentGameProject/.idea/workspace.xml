@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f16d3b9-333b-4827-bff8-0991a3637f88" name="Default Changelist" comment="" />
+    <list default="true" id="4f16d3b9-333b-4827-bff8-0991a3637f88" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +35,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ExitGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/mw/Documents/Fachhochschule/Semester_7/sdent/GITHUB/sdentGameProject/Assets/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/mw/Documents/Fachhochschule/Semester_7/sdent/GITHUB/sdentGameProject/Assets/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/mw/Documents/Fachhochschule/Semester_7/sdent/GITHUB/sdentGameProject/Assets/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -54,6 +62,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/Downloads/Autronaut/macOS3.app/Contents/MacOS/sdentGame" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads/Autronaut/macOS3.app/Contents/MacOS" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -82,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607787998241</updated>
       <workItem from="1607788014730" duration="4918000" />
+      <workItem from="1607970367400" duration="47000" />
     </task>
     <servers />
   </component>
@@ -110,5 +127,9 @@
       <screen x="1920" y="23" width="1920" height="1177" />
     </state>
     <state x="2389" y="250" key="SettingsEditor/0.23.1920.1133/1920.23.1920.1177@1920.23.1920.1177" timestamp="1607894881759" />
+    <state x="240" y="143" width="1200" height="743" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607970396831">
+      <screen x="0" y="23" width="1680" height="983" />
+    </state>
+    <state x="240" y="143" width="1200" height="743" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.983@0.23.1680.983" timestamp="1607970396831" />
   </component>
 </project>
