@@ -37,6 +37,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.Escape)) // Escape
+        {
+            // Back to Startmenu
+            SceneManager.LoadScene("MainMenu");
+        }
+        
         if (Input.GetKey("w")) // UP
         {
             moveUp = true;
