@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,8 +48,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 SceneManager.LoadScene("MainMenu");
             }
-
-           
         }
         
         if (Input.GetKey("w")) // UP
