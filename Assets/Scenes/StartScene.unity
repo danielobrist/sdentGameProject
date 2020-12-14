@@ -241,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 590154165}
     - target: {fileID: 770375757296790916, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
       propertyPath: energy_step
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
