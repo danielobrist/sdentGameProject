@@ -25137,8 +25137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f3404960d1dea4e97ecfa673ece6be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrusterBottom1: {fileID: 0}
-  thrusterBottom2: {fileID: 0}
-  thrusterRight: {fileID: 0}
-  thrusterLeft: {fileID: 0}
-  thrusterTop: {fileID: 0}
+  thrusterBottom1: {fileID: 82516007650464181}
+  thrusterBottom2: {fileID: 3710308475653878438}
+  thrusterRight: {fileID: 1581951394027467331}
+  thrusterLeft: {fileID: 2815585218873533449}
+  thrusterTop: {fileID: 3643572796949422515}

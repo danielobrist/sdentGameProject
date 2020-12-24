@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public float deathSlomoFactor = 100f;
+    public float deathSlomoFactor = 1000f;
     public void EndGame()
     {
         StartCoroutine(RestartLevel());
