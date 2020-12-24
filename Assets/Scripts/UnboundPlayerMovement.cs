@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 public class UnboundPlayerMovement : MonoBehaviour
 {
     public float forwardVelocity = 1000;
+    public float baseForce = 5;
+    public float boostMultiplier = 5;
     public float torque;
     public GameObject oxygen;
 
@@ -25,14 +27,15 @@ public class UnboundPlayerMovement : MonoBehaviour
     public float energy = 100f;
     public float energy_step = 0.1f;
     private float energy_cont = 100f;
-    
+
+    private float forceMultiplier = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody>(); //Abholen von Astronaut
         rbody.AddForce(Vector3.forward * forwardVelocity);
-        // rbody.AddForce(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f))); // Kraft (in 3D) anwenden um Bewegung zu starten
+        rbody.AddForce(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f)) * forceMultiplier); // Kraft (in 3D) anwenden um Bewegung zu starten
         // rbody.AddRelativeTorque(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f))); // Rotierung
     }
 
@@ -40,6 +43,13 @@ public class UnboundPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            forceMultiplier = baseForce * boostMultiplier;
+        } else
+        {
+            forceMultiplier = baseForce;
+        }
         if (Input.GetKey(KeyCode.Escape)) // Escape
         {
             // Back to Startmenu or Exit Game
@@ -85,29 +95,28 @@ public class UnboundPlayerMovement : MonoBehaviour
     {
         if (moveUp)
         {
-            rbody.AddForce(Vector3.up);
-            Debug.Log(rbody.velocity);
+            rbody.AddForce(Vector3.up * forceMultiplier);
             //- Energy steps
             energy -= energy_step;
             moveUp = false;
         }
         if (moveDown)
         {
-            rbody.AddForce(Vector3.down);
+            rbody.AddForce(Vector3.down * forceMultiplier);
             //- Energy steps
             energy -= energy_step;
             moveDown = false;
         }
         if (moveLeft)
         {
-            rbody.AddForce(Vector3.left);
+            rbody.AddForce(Vector3.left * forceMultiplier);
             //- Energy steps
             energy -= energy_step;
             moveLeft = false;
         }
         if (moveRight)
         {
-            rbody.AddForce(Vector3.right);
+            rbody.AddForce(Vector3.right * forceMultiplier);
             //- Energy steps
             energy -= energy_step;
             moveRight = false;
