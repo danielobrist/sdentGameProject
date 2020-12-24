@@ -22,8 +22,13 @@ public class Asteroid : MonoBehaviour
     MeshFilter[] meshFilters;
     AsteroidFace[] asteroidFaces;
 
+    private void Awake()
+    {
+        //GenerateAsteroid();
+    }
     void Initialize()
     {
+        
         shapeGenerator = new ShapeGenerator(shapeSettings);
         if (meshFilters == null || meshFilters.Length == 0)
         {
