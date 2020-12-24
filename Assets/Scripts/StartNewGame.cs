@@ -5,6 +5,6 @@ public class StartNewGame : MonoBehaviour
 {
     public void ChangeToGame()
     {
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("Gameplay");
     }
 }
