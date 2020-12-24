@@ -32,7 +32,7 @@ public class UnboundPlayerMovement : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody>(); //Abholen von Astronaut
         rbody.AddForce(Vector3.forward * forwardVelocity);
-        rbody.AddForce(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f))); // Kraft (in 3D) anwenden um Bewegung zu starten
+        // rbody.AddForce(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f))); // Kraft (in 3D) anwenden um Bewegung zu starten
         // rbody.AddRelativeTorque(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f))); // Rotierung
     }
 
@@ -86,6 +86,7 @@ public class UnboundPlayerMovement : MonoBehaviour
         if (moveUp)
         {
             rbody.AddForce(Vector3.up);
+            Debug.Log(rbody.velocity);
             //- Energy steps
             energy -= energy_step;
             moveUp = false;
