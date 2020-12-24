@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7814800341445836107}
   - component: {fileID: 171593301879676951}
   - component: {fileID: 7144328624250980194}
+  - component: {fileID: 4937439771511186924}
   m_Layer: 0
   m_Name: Space
   m_TagString: Untagged
@@ -74,3 +75,19 @@ MonoBehaviour:
   asteroidPrefab: {fileID: 6412681961306631384, guid: 4a3ac06a32821014885057c2ba2aa256, type: 3}
   numberOfAsteroids: 1000
   spawnArea: 400
+--- !u!54 &4937439771511186924
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145243434380024468}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0

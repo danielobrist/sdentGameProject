@@ -14,8 +14,8 @@ public class SpaceGenerator : MonoBehaviour
         {
             Debug.Log("Astronaut entered new Space");
             GameObject newSpace = Instantiate(spacePrefab) as GameObject;
+            newSpace.name = "Space";
             newSpace.transform.position = new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z + 800f);
-
             newSpace.SetActive(true);
             newSpace.GetComponent<AsteroidFieldGenerator>().SpawnAsteroids();
         }
