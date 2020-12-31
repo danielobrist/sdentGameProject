@@ -2098,6 +2098,10 @@ PrefabInstance:
       propertyPath: outtext
       value: 
       objectReference: {fileID: 994336295}
+    - target: {fileID: 7866046067208753597, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
+      propertyPath: oxy_step
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7866046067208753598, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
       propertyPath: m_Name
       value: Astronaut

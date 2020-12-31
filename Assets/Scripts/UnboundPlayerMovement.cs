@@ -36,7 +36,7 @@ public class UnboundPlayerMovement : MonoBehaviour
 
     //- Oxygen Level
     public float oxy_energy = 100f;
-    public float oxy_step = 0.1f;
+    public float oxy_step = 0.5f;
     private float oxygen_cont = 100f;
 
     //- Time spend
@@ -116,11 +116,9 @@ public class UnboundPlayerMovement : MonoBehaviour
             outtext.text = setZero(spendTime.Hours) + ":" + 
                            setZero(spendTime.Minutes) + ":" +
                            setZero(spendTime.Seconds);
-            if (spendTime.Seconds % 2 == 0)
-            {
-                oxy_energy = oxy_energy - oxy_step;
-                ShowBottleLevel(oxygen, oxy_energy);
-            }
+
+            oxy_energy = oxy_energy - oxy_step;
+            ShowBottleLevel(oxygen, oxy_energy);
         }
         //- Reset Control-Value
         time_cont = spendTime.Seconds;
