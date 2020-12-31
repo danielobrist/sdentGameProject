@@ -26,15 +26,24 @@
             <e p="AsteroidMovement.cs" t="Include" />
             <e p="AsteroidSpawner.cs" t="Include" />
             <e p="ColorSettings.cs" t="Include" />
+            <e p="IdleAsteroid.cs" t="Include" />
             <e p="Noise.cs" t="Include" />
             <e p="NoiseFilter.cs" t="Include" />
             <e p="NoiseSettings.cs" t="Include" />
             <e p="ShapeGenerator.cs" t="Include" />
             <e p="ShapeSettings.cs" t="Include" />
           </e>
+          <e p="AsteroidFieldGenerator.cs" t="Include" />
+          <e p="DestroyObjects.cs" t="Include" />
           <e p="ExitGame.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="PlayerFollow.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
+          <e p="SetRandomSeed.cs" t="Include" />
+          <e p="SpaceGenerator.cs" t="Include" />
           <e p="StartNewGame.cs" t="Include" />
+          <e p="ThrusterControl.cs" t="Include" />
+          <e p="UnboundPlayerMovement.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

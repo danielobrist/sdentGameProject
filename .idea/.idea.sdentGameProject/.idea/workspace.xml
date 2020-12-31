@@ -20,7 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f16d3b9-333b-4827-bff8-0991a3637f88" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/New Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/New Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnboundPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnboundPlayerMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +39,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ExitGame.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/mw/Documents/Fachhochschule/Semester_7/sdent/GITHUB/sdentGameProject/Assets/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/mw/Documents/Fachhochschule/Semester_7/sdent/GITHUB/sdentGameProject/Assets/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/mw/Documents/Fachhochschule/Semester_7/sdent/GITHUB/sdentGameProject/Assets/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -45,6 +46,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/StartNewGame.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ExitGame.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UnboundPlayerMovement.cs" />
       </list>
     </option>
   </component>
@@ -99,6 +101,12 @@
       <updated>1607787998241</updated>
       <workItem from="1607788014730" duration="4918000" />
       <workItem from="1607970367400" duration="47000" />
+      <workItem from="1608826782513" duration="7358000" />
+      <workItem from="1609379408131" duration="783000" />
+      <workItem from="1609380751419" duration="697000" />
+      <workItem from="1609381783580" duration="261000" />
+      <workItem from="1609382167094" duration="302000" />
+      <workItem from="1609382626874" duration="731000" />
     </task>
     <servers />
   </component>
@@ -127,9 +135,13 @@
       <screen x="1920" y="23" width="1920" height="1177" />
     </state>
     <state x="2389" y="250" key="SettingsEditor/0.23.1920.1133/1920.23.1920.1177@1920.23.1920.1177" timestamp="1607894881759" />
-    <state x="240" y="143" width="1200" height="743" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607970396831">
+    <state x="240" y="143" width="1200" height="743" key="VCS.FileHistoryDialog" timestamp="1609353729133">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state x="240" y="143" width="1200" height="743" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.983@0.23.1680.983" timestamp="1607970396831" />
+    <state x="240" y="143" width="1200" height="743" key="VCS.FileHistoryDialog/0.23.1680.983@0.23.1680.983" timestamp="1609353729133" />
+    <state x="240" y="143" width="1200" height="743" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609377702538">
+      <screen x="0" y="23" width="1680" height="983" />
+    </state>
+    <state x="240" y="143" width="1200" height="743" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.983@0.23.1680.983" timestamp="1609377702538" />
   </component>
 </project>
