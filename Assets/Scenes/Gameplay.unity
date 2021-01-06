@@ -695,11 +695,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 770375757453885253}
   smoothFactor: 0.14
---- !u!198 &539837817 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 82516007650464181, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-  m_PrefabInstance: {fileID: 7465036974299935387}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &573964226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,11 +1074,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01fb3baa0105ff43aac98eacf27cacb, type: 3}
---- !u!198 &926894063 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2815585218873533449, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-  m_PrefabInstance: {fileID: 7465036974299935387}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &930417489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,11 +1213,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!198 &938812359 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1581951394027467331, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-  m_PrefabInstance: {fileID: 7465036974299935387}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &985050858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,8 +1283,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994336293}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: -5, z: 3}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0.01, y: -5, z: 3}
+  m_LocalScale: {x: 0.10145918, y: 0.10145918, z: 0.10145918}
   m_Children: []
   m_Father: {fileID: 303894021}
   m_RootOrder: 4
@@ -1316,10 +1301,10 @@ TextMesh:
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
+  m_Anchor: 4
+  m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 100
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -1591,11 +1576,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01fb3baa0105ff43aac98eacf27cacb, type: 3}
---- !u!198 &1870738936 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3643572796949422515, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-  m_PrefabInstance: {fileID: 7465036974299935387}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1966051410
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,26 +1994,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThrusterBottom1
       objectReference: {fileID: 0}
-    - target: {fileID: 4623183500875976677, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-      propertyPath: thrusterBottom1
-      value: 
-      objectReference: {fileID: 539837817}
-    - target: {fileID: 4623183500875976677, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-      propertyPath: thrusterBottom2
-      value: 
-      objectReference: {fileID: 7465036974299935389}
-    - target: {fileID: 4623183500875976677, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-      propertyPath: thrusterRight
-      value: 
-      objectReference: {fileID: 938812359}
-    - target: {fileID: 4623183500875976677, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-      propertyPath: thrusterLeft
-      value: 
-      objectReference: {fileID: 926894063}
-    - target: {fileID: 4623183500875976677, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-      propertyPath: thrusterTop
-      value: 
-      objectReference: {fileID: 1870738936}
     - target: {fileID: 7866046067208457694, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.038243562
@@ -2087,10 +2047,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 349269426}
     - target: {fileID: 7866046067208753597, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-      propertyPath: energy
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7866046067208753597, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
       propertyPath: TimeText
       value: 
       objectReference: {fileID: 994336293}
@@ -2098,18 +2054,9 @@ PrefabInstance:
       propertyPath: outtext
       value: 
       objectReference: {fileID: 994336295}
-    - target: {fileID: 7866046067208753597, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-      propertyPath: oxy_step
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7866046067208753598, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
       propertyPath: m_Name
       value: Astronaut
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
---- !u!198 &7465036974299935389 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3710308475653878438, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
-  m_PrefabInstance: {fileID: 7465036974299935387}
-  m_PrefabAsset: {fileID: 0}

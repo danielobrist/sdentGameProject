@@ -25122,9 +25122,13 @@ MonoBehaviour:
   baseForce: 5
   boostMultiplier: 3
   torque: 0
+  nitro: {fileID: 0}
   oxygen: {fileID: 0}
-  energy: 10000
+  outtext: {fileID: 0}
+  energy: 100
   energy_step: 0.1
+  oxy_energy: 100
+  oxy_step: 1
 --- !u!114 &4623183500875976677
 MonoBehaviour:
   m_ObjectHideFlags: 0
