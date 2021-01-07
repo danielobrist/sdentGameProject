@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 2056517051}
   referencePoint: {fileID: 1999651050}
-  scaleFactor: 942
+  scaleFactor: 20000
 --- !u!1 &1249008486
 GameObject:
   m_ObjectHideFlags: 0
