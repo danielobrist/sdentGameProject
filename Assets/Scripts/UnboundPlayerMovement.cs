@@ -18,6 +18,14 @@ public class UnboundPlayerMovement : MonoBehaviour
     public GameObject oxygen;
     public TextMesh outtext;
     
+    //- Thruster INIT
+    public GameObject thrusterB1;
+    public GameObject thrusterB2;
+    public GameObject thrusterRight;
+    public GameObject thrusterLeft;
+    public GameObject thrusterTop;
+    private float thrusterxScale = 0.21418f;
+    
     private Rigidbody rbody; //Astronaut RigidBody -> Fester Körper mit Physikalischen verhalten
 
     private bool moveUp;
@@ -27,7 +35,6 @@ public class UnboundPlayerMovement : MonoBehaviour
     private bool rotateLeft;
     private bool rotateRight;
     private bool boost;
-    
 
     //- Energy (Nitro) Level
     public float energy = 100f;
@@ -44,7 +51,7 @@ public class UnboundPlayerMovement : MonoBehaviour
     private int time_cont = 0;
 
     private float forceMultiplier = 1;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -54,20 +61,42 @@ public class UnboundPlayerMovement : MonoBehaviour
         // rbody.AddRelativeTorque(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f))); // Rotierung
         
         startTime = DateTime.Now;
-        
+
+        thrusterB1 = GameObject.Find("ThrusterBottom1");
+        thrusterB2 = GameObject.Find("ThrusterBottom2");
+        thrusterRight = GameObject.Find("ThrusterRight");
+        thrusterLeft = GameObject.Find("ThrusterLeft");
+        thrusterTop = GameObject.Find("ThrusterTop");
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Space))
         {
             forceMultiplier = baseForce * boostMultiplier;
+            thrusterxScale = 0.4f;
+            thrusterB1.gameObject.transform.localScale     = new Vector3(thrusterxScale,0.21418f,0.1018019f);
+            thrusterB2.gameObject.transform.localScale     = new Vector3(thrusterxScale,0.21418f,0.1018019f);
+            thrusterRight.gameObject.transform.localScale  = new Vector3(thrusterxScale,0.21418f,0.1018019f);
+            thrusterLeft.gameObject.transform.localScale   = new Vector3(thrusterxScale,0.21418f,0.1018019f);
+            thrusterTop.gameObject.transform.localScale    = new Vector3(thrusterxScale,0.21418f,0.1018019f);
         } else
         {
             forceMultiplier = baseForce;
+            if (thrusterxScale > 0.21418f)
+            {
+                thrusterxScale = 0.21418f;
+                thrusterB1.gameObject.transform.localScale     = new Vector3(thrusterxScale, 0.21418f, 0.1018019f);
+                thrusterB2.gameObject.transform.localScale     = new Vector3(thrusterxScale, 0.21418f, 0.1018019f);
+                thrusterRight.gameObject.transform.localScale  = new Vector3(thrusterxScale, 0.21418f, 0.1018019f);
+                thrusterLeft.gameObject.transform.localScale   = new Vector3(thrusterxScale, 0.21418f, 0.1018019f);
+                thrusterTop.gameObject.transform.localScale    = new Vector3(thrusterxScale, 0.21418f, 0.1018019f);
+            }
         }
+
+        
         if (Input.GetKey(KeyCode.Escape)) // Escape
         {
             // Back to Startmenu or Exit Game
@@ -127,6 +156,7 @@ public class UnboundPlayerMovement : MonoBehaviour
     // Called every physics update
     private void FixedUpdate()
     {
+        
         if (moveUp)
         {
             rbody.AddForce(Vector3.up * forceMultiplier);
