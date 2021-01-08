@@ -25099,7 +25099,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7866046067208753598}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0ed8e93fb31cd3a4cb8e3112686f82af, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.00065731915
@@ -25125,6 +25125,11 @@ MonoBehaviour:
   nitro: {fileID: 0}
   oxygen: {fileID: 0}
   outtext: {fileID: 0}
+  thrusterB1: {fileID: 0}
+  thrusterB2: {fileID: 0}
+  thrusterRight: {fileID: 0}
+  thrusterLeft: {fileID: 0}
+  thrusterTop: {fileID: 0}
   energy: 100
   energy_step: 0.1
   oxy_energy: 100

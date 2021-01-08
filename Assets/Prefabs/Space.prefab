@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 7144328624250980194}
   - component: {fileID: 4937439771511186924}
   - component: {fileID: 5080912837946922095}
+  - component: {fileID: 1031087505147095146}
+  - component: {fileID: 3560105730634083483}
   m_Layer: 0
   m_Name: Space
   m_TagString: Untagged
@@ -89,7 +91,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -105,8 +107,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9556b894a92394890b6346764adaeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetPrefab: {fileID: 0}
-  maxPlanets: 5
+  planetPrefab: {fileID: 134308, guid: 718940f807eb53f4aa0c16d70080432d, type: 3}
+  maxPlanets: 2
+  spawnArea: 500
+--- !u!114 &1031087505147095146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145243434380024468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd4419b1c378844d93d93a737f42714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3560105730634083483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145243434380024468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c411c54247b4c3041b285644074f0c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectable1: {fileID: 4326625159393114484, guid: 8190a340c91ee452b9497fb1c7b6cfe5, type: 3}
+  collectable2: {fileID: 6413184836901256347, guid: 7ecd26f1c270544b38c3505db9671ad6, type: 3}
+  numberOfCollectables: 20
   spawnArea: 20
 --- !u!1 &9016508140969568272
 GameObject:

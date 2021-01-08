@@ -35,6 +35,8 @@ public class UnboundPlayerMovement : MonoBehaviour
     private bool rotateLeft;
     private bool rotateRight;
     private bool boost;
+    private bool outOfEnergy;
+    private bool controlLost = false;
 
     //- Energy (Nitro) Level
     public float energy = 100f;
@@ -109,32 +111,37 @@ public class UnboundPlayerMovement : MonoBehaviour
                 SceneManager.LoadScene("MainMenu");
             }
         }
-
-        if (Input.GetKey("w")) // UP
+        if (energy > 0 && !controlLost)
         {
-            moveUp = true;
-        }
-        if (Input.GetKey("s")) // DOWN
+            if (Input.GetKey("w")) // UP
+            {
+                moveUp = true;
+            }
+            if (Input.GetKey("s")) // DOWN
+            {
+                moveDown = true;
+            }
+            if (Input.GetKey("a")) // LEFT
+            {
+                moveLeft = true;
+            }
+            if (Input.GetKey("d")) // RIGHT
+            {
+                moveRight = true;
+            }
+            if (Input.GetKey("c")) // ROTATE LEFT
+            {
+                rotateLeft = true;
+            }
+            if (Input.GetKey("v")) // ROTATE RIGHT
+            {
+                rotateRight = true;
+            }
+        } else
         {
-            moveDown = true;
+            outOfEnergy = true;
         }
-        if (Input.GetKey("a")) // LEFT
-        {
-            moveLeft = true;
-        }
-        if (Input.GetKey("d")) // RIGHT
-        {
-            moveRight = true;
-        }
-        if (Input.GetKey("c")) // ROTATE LEFT
-        {
-            rotateLeft = true;
-        }
-        if (Input.GetKey("v")) // ROTATE RIGHT
-        {
-            rotateRight = true;
-        }
-        
+          
         //- Update Time
         var spendTime = DateTime.Now.Subtract(startTime);
 
@@ -202,6 +209,12 @@ public class UnboundPlayerMovement : MonoBehaviour
 
         // Update Nitrogen Level
         ShowBottleLevel(nitro, energy);
+
+        if (outOfEnergy && !controlLost)
+        {
+            rbody.AddTorque(new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), Random.Range(-5f, 5f)));
+            controlLost = true;
+        }
     }
 
     private void ShowBottleLevel(GameObject bottle,float value)
@@ -270,15 +283,17 @@ public class UnboundPlayerMovement : MonoBehaviour
              }
              else
              {
-                 // Back to Startmenu
-                 SceneManager.LoadScene("MainMenu");
+                 if (bottle.gameObject.name.Equals("Oxygen_Bottle"))
+            {
+                // Back to Startmenu
+                SceneManager.LoadScene("MainMenu");
+            }
+                 
              }
          }
     
-    private void OnCollisionEnter(Collision collision)
-    {
-        FindObjectOfType<GameManager>().EndGame(); // maybe do this different, not with find
-    }
+    
+
 
     private String setZero(int input)
     {
@@ -288,6 +303,16 @@ public class UnboundPlayerMovement : MonoBehaviour
         }
 
         return $"{input}";
+    }
+
+    public void addOxygen()
+    {
+        oxy_energy = 100;
+    }
+
+    public void addNitrogen()
+    {
+        energy = 100;
     }
 }
 

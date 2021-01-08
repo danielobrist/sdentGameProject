@@ -19,42 +19,55 @@ public class ThrusterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("w"))
+        if (GetComponent<UnboundPlayerMovement>().energy > 0)
         {
-            startThrust(thrusterBottom1);
-            startThrust(thrusterBottom2);
+            if (Input.GetKey("w"))
+            {
+                startThrust(thrusterBottom1);
+                startThrust(thrusterBottom2);
+            }
+            else
+            {
+                stopThrust(thrusterBottom1);
+                stopThrust(thrusterBottom2);
+            }
+
+            if (Input.GetKey("s"))
+            {
+                startThrust(thrusterTop);
+            }
+            else
+            {
+                stopThrust(thrusterTop);
+            }
+
+            if (Input.GetKey("a"))
+            {
+                startThrust(thrusterRight);
+            }
+            else
+            {
+                stopThrust(thrusterRight);
+            }
+
+            if (Input.GetKey("d"))
+            {
+                startThrust(thrusterLeft);
+            }
+            else
+            {
+                
+                stopThrust(thrusterLeft);
+            }
         } else
         {
             stopThrust(thrusterBottom1);
             stopThrust(thrusterBottom2);
-        }
-
-        if (Input.GetKey("s"))
-        {
-            startThrust(thrusterTop);
-        }
-        else
-        {
             stopThrust(thrusterTop);
-        }
-
-        if (Input.GetKey("a"))
-        {
-            startThrust(thrusterRight);
-        }
-        else
-        {
             stopThrust(thrusterRight);
-        }
-
-        if (Input.GetKey("d"))
-        {
-            startThrust(thrusterLeft);
-        }
-        else
-        {
             stopThrust(thrusterLeft);
         }
+        
     }
 
     public void startThrust(ParticleSystem thruster)

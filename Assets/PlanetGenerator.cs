@@ -15,7 +15,7 @@ public class PlanetGenerator : MonoBehaviour
     public void SpawnPlanets()
     {
             GameObject clone = Instantiate(planetPrefab) as GameObject;
-            clone.gameObject.tag = "Destroy";
+            clone.gameObject.tag = "Planet";
             clone.transform.position = new Vector3(transform.position.x + Random.Range(-spawnArea, spawnArea), transform.position.y + Random.Range(-spawnArea, spawnArea), transform.position.z + spawnArea);
     }
 }

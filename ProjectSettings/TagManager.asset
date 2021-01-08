@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Destroy
   - Asteroid
+  - Collectable
+  - Astronaut
   layers:
   - Default
   - TransparentFX
