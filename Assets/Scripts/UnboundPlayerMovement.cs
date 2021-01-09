@@ -75,6 +75,7 @@ public class UnboundPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if (Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Space))
         {
             forceMultiplier = baseForce * boostMultiplier;
@@ -154,10 +155,14 @@ public class UnboundPlayerMovement : MonoBehaviour
                            setZero(spendTime.Seconds);
 
             oxy_energy = oxy_energy - oxy_step;
-            ShowBottleLevel(oxygen, oxy_energy);
+            
         }
         //- Reset Control-Value
         time_cont = spendTime.Seconds;
+
+        // Update Nitrogen Level
+        ShowBottleLevel(nitro, energy);
+        ShowBottleLevel(oxygen, oxy_energy);
     }
 
     // Called every physics update
@@ -207,8 +212,7 @@ public class UnboundPlayerMovement : MonoBehaviour
             rotateRight = false;
         }
 
-        // Update Nitrogen Level
-        ShowBottleLevel(nitro, energy);
+        
 
         if (outOfEnergy && !controlLost)
         {
@@ -222,7 +226,7 @@ public class UnboundPlayerMovement : MonoBehaviour
              if (value >= 0)
              {
                  // check catch nitro/oxygen
-                 if (energy_cont > value)
+                 if (energy >= value || oxy_energy >= value)
                  {
                      bottle.transform.Find("level.000").gameObject.SetActive(true);
                      bottle.transform.Find("level.001").gameObject.SetActive(true);
@@ -277,18 +281,14 @@ public class UnboundPlayerMovement : MonoBehaviour
                  {
                      bottle.transform.Find("level.000").gameObject.SetActive(false);
                  }
-     
-                 // set new control value
-                 energy_cont = value;
              }
              else
              {
                  if (bottle.gameObject.name.Equals("Oxygen_Bottle"))
-            {
-                // Back to Startmenu
-                SceneManager.LoadScene("MainMenu");
-            }
-                 
+                    {
+                        // Back to Startmenu
+                        SceneManager.LoadScene("MainMenu");
+                    }
              }
          }
     
@@ -308,11 +308,13 @@ public class UnboundPlayerMovement : MonoBehaviour
     public void addOxygen()
     {
         oxy_energy = 100;
+        ShowBottleLevel(oxygen, oxy_energy);
     }
 
     public void addNitrogen()
     {
         energy = 100;
+        ShowBottleLevel(nitro, energy);
     }
 }
 
