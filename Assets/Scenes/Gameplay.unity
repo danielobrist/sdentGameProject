@@ -2140,7 +2140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8979729971623142924, guid: 9949e68e151ba1d44b79d02e333bd2f9, type: 3}
       propertyPath: m_FontStyle
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8979729971623142925, guid: 9949e68e151ba1d44b79d02e333bd2f9, type: 3}
       propertyPath: m_LocalPosition.y
