@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
- using UnityEngine.UI;
- using Random = UnityEngine.Random;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
+ 
 
 
-public class UnboundPlayerMovement : MonoBehaviour
+ public class UnboundPlayerMovement : MonoBehaviour
 {
     public float forwardVelocity = 1000;
     public float baseForce = 5;
@@ -16,7 +17,8 @@ public class UnboundPlayerMovement : MonoBehaviour
     public float torque;
     public GameObject nitro;
     public GameObject oxygen;
-    public TextMesh outtext;
+    public TextMesh timeText;
+    public TextMesh scoreText;
     
     //- Thruster INIT
     public GameObject thrusterB1;
@@ -42,17 +44,27 @@ public class UnboundPlayerMovement : MonoBehaviour
     public float energy = 100f;
     public float energy_step = 0.1f;
     private float energy_cont = 100f;
+    public TextMesh nitroOutText;
 
     //- Oxygen Level
     public float oxy_energy = 100f;
     public float oxy_step = 0.5f;
     private float oxygen_cont = 100f;
+    public TextMesh oxygenOutText;
 
     //- Time spend
     private DateTime startTime;
     private int time_cont = 0;
 
     private float forceMultiplier = 1;
+    
+    //- Score View
+    private int scoreCount = 10;
+    private int scoreLevel = 1;
+    private int scoreINTTXT = 0;
+    private bool alive = true;
+    
+    
     
     // Start is called before the first frame update
     void Start()
@@ -79,23 +91,15 @@ public class UnboundPlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Space))
         {
             forceMultiplier = baseForce * boostMultiplier;
-            thrusterxScale = 0.4f;
-            thrusterB1.gameObject.transform.localScale     = new Vector3(thrusterxScale,0.21418f,0.1018019f);
-            thrusterB2.gameObject.transform.localScale     = new Vector3(thrusterxScale,0.21418f,0.1018019f);
-            thrusterRight.gameObject.transform.localScale  = new Vector3(thrusterxScale,0.21418f,0.1018019f);
-            thrusterLeft.gameObject.transform.localScale   = new Vector3(thrusterxScale,0.21418f,0.1018019f);
-            thrusterTop.gameObject.transform.localScale    = new Vector3(thrusterxScale,0.21418f,0.1018019f);
+            //- Boost visualisation
+            setBoosterView(0.4f);
+            
         } else
         {
             forceMultiplier = baseForce;
             if (thrusterxScale > 0.21418f)
             {
-                thrusterxScale = 0.21418f;
-                thrusterB1.gameObject.transform.localScale     = new Vector3(thrusterxScale, 0.21418f, 0.1018019f);
-                thrusterB2.gameObject.transform.localScale     = new Vector3(thrusterxScale, 0.21418f, 0.1018019f);
-                thrusterRight.gameObject.transform.localScale  = new Vector3(thrusterxScale, 0.21418f, 0.1018019f);
-                thrusterLeft.gameObject.transform.localScale   = new Vector3(thrusterxScale, 0.21418f, 0.1018019f);
-                thrusterTop.gameObject.transform.localScale    = new Vector3(thrusterxScale, 0.21418f, 0.1018019f);
+                setBoosterView(0.21418f);
             }
         }
 
@@ -150,17 +154,26 @@ public class UnboundPlayerMovement : MonoBehaviour
         {
             // Debug.Log(setZero(spendTime.Hours)+":"+setZero(spendTime.Minutes)+":"+setZero(spendTime.Seconds));
 
-            outtext.text = setZero(spendTime.Hours) + ":" + 
-                           setZero(spendTime.Minutes) + ":" +
-                           setZero(spendTime.Seconds);
+            timeText.text = setZero(spendTime.Hours) + ":" + 
+                            setZero(spendTime.Minutes) + ":" +
+                            setZero(spendTime.Seconds);
 
             oxy_energy = oxy_energy - oxy_step;
             
+            //- Calculate Score
+            scoreINTTXT += (int)(scoreCount * scoreLevel);
+            if (alive)
+            {
+                scoreINTTXT += (int)(scoreCount * scoreLevel);
+            }
+
+            scoreText.text = "Score: " + scoreINTTXT;
+
         }
         //- Reset Control-Value
         time_cont = spendTime.Seconds;
 
-        // Update Nitrogen Level
+        // Update Bottle Level
         ShowBottleLevel(nitro, energy);
         ShowBottleLevel(oxygen, oxy_energy);
     }
@@ -222,75 +235,85 @@ public class UnboundPlayerMovement : MonoBehaviour
     }
 
     private void ShowBottleLevel(GameObject bottle,float value)
+     {
+         if (bottle.gameObject.name.Equals("Oxygen_Bottle"))
          {
-             if (value >= 0)
+             oxygenOutText.text = (int)value + "%";
+         }
+         if (bottle.gameObject.name.Equals("Nitro_Bottle"))
+         {
+             nitroOutText.text = (int)value + "%";
+         }
+
+         if (value >= 0)
+         {
+             // check catch nitro/oxygen
+             if (energy >= value || oxy_energy >= value)
              {
-                 // check catch nitro/oxygen
-                 if (energy >= value || oxy_energy >= value)
-                 {
-                     bottle.transform.Find("level.000").gameObject.SetActive(true);
-                     bottle.transform.Find("level.001").gameObject.SetActive(true);
-                     bottle.transform.Find("level.002").gameObject.SetActive(true);
-                     bottle.transform.Find("level.003").gameObject.SetActive(true);
-                     bottle.transform.Find("level.004").gameObject.SetActive(true);
-                     bottle.transform.Find("level.005").gameObject.SetActive(true);
-                     bottle.transform.Find("level.006").gameObject.SetActive(true);
-                     bottle.transform.Find("level.007").gameObject.SetActive(true);
-                     bottle.transform.Find("level.008").gameObject.SetActive(true);
-                     bottle.transform.Find("level.009").gameObject.SetActive(true);
-                 }
-     
-                 if (value < 90)
-                 {
-                     bottle.transform.Find("level.009").gameObject.SetActive(false);
-                 }
-                 if (value < 80)
-                 {
-                     bottle.transform.Find("level.008").gameObject.SetActive(false);
-                 }
-                 if (value < 70)
-                 {
-                     bottle.transform.Find("level.007").gameObject.SetActive(false);
-                 }
-                 if (value < 60)
-                 {
-                     bottle.transform.Find("level.006").gameObject.SetActive(false);
-                 }
-                 if (value < 50)
-                 {
-                     bottle.transform.Find("level.005").gameObject.SetActive(false);
-                 }
-                 if (value < 40)
-                 {
-                     bottle.transform.Find("level.004").gameObject.SetActive(false);
-                 }
-                 if (value < 30)
-                 {
-                     bottle.transform.Find("level.003").gameObject.SetActive(false);
-                 }
-                 if (value < 20)
-                 {
-                     bottle.transform.Find("level.002").gameObject.SetActive(false);
-                 }
-                 if (value < 10)
-                 {
-                     bottle.transform.Find("level.001").gameObject.SetActive(false);
-     
-                 }
-                 if (value < 4)
-                 {
-                     bottle.transform.Find("level.000").gameObject.SetActive(false);
-                 }
+                 bottle.transform.Find("level.000").gameObject.SetActive(true);
+                 bottle.transform.Find("level.001").gameObject.SetActive(true);
+                 bottle.transform.Find("level.002").gameObject.SetActive(true);
+                 bottle.transform.Find("level.003").gameObject.SetActive(true);
+                 bottle.transform.Find("level.004").gameObject.SetActive(true);
+                 bottle.transform.Find("level.005").gameObject.SetActive(true);
+                 bottle.transform.Find("level.006").gameObject.SetActive(true);
+                 bottle.transform.Find("level.007").gameObject.SetActive(true);
+                 bottle.transform.Find("level.008").gameObject.SetActive(true);
+                 bottle.transform.Find("level.009").gameObject.SetActive(true);
              }
-             else
+ 
+             if (value < 90)
              {
-                 if (bottle.gameObject.name.Equals("Oxygen_Bottle"))
-                    {
-                        // Back to Startmenu
-                        SceneManager.LoadScene("MainMenu");
-                    }
+                 bottle.transform.Find("level.009").gameObject.SetActive(false);
+             }
+             if (value < 80)
+             {
+                 bottle.transform.Find("level.008").gameObject.SetActive(false);
+             }
+             if (value < 70)
+             {
+                 bottle.transform.Find("level.007").gameObject.SetActive(false);
+             }
+             if (value < 60)
+             {
+                 bottle.transform.Find("level.006").gameObject.SetActive(false);
+             }
+             if (value < 50)
+             {
+                 bottle.transform.Find("level.005").gameObject.SetActive(false);
+             }
+             if (value < 40)
+             {
+                 bottle.transform.Find("level.004").gameObject.SetActive(false);
+             }
+             if (value < 30)
+             {
+                 bottle.transform.Find("level.003").gameObject.SetActive(false);
+             }
+             if (value < 20)
+             {
+                 bottle.transform.Find("level.002").gameObject.SetActive(false);
+             }
+             if (value < 10)
+             {
+                 bottle.transform.Find("level.001").gameObject.SetActive(false);
+ 
+             }
+             if (value < 4)
+             {
+                 bottle.transform.Find("level.000").gameObject.SetActive(false);
              }
          }
+         else
+         {
+             if (bottle.gameObject.name.Equals("Oxygen_Bottle"))
+             {
+                 alive = false;
+                // Back to Startmenu
+                SceneManager.LoadScene("MainMenu");
+             }
+         }
+     }
     
     
 
@@ -309,6 +332,7 @@ public class UnboundPlayerMovement : MonoBehaviour
     {
         oxy_energy = 100;
         ShowBottleLevel(oxygen, oxy_energy);
+        scoreLevel++;
     }
 
     public void addNitrogen()
@@ -316,6 +340,17 @@ public class UnboundPlayerMovement : MonoBehaviour
         outOfEnergy = false;
         energy = 100;
         ShowBottleLevel(nitro, energy);
+        scoreLevel++;
+    }
+    
+    private void setBoosterView(float ttxScale)
+    {
+        thrusterxScale = ttxScale;
+        thrusterB1.gameObject.transform.localScale     = new Vector3(ttxScale,0.21418f,0.1018019f);
+        thrusterB2.gameObject.transform.localScale     = new Vector3(ttxScale,0.21418f,0.1018019f);
+        thrusterRight.gameObject.transform.localScale  = new Vector3(ttxScale,0.21418f,0.1018019f);
+        thrusterLeft.gameObject.transform.localScale   = new Vector3(ttxScale,0.21418f,0.1018019f);
+        thrusterTop.gameObject.transform.localScale    = new Vector3(ttxScale,0.21418f,0.1018019f);
     }
 }
 
