@@ -13,9 +13,10 @@ public class IdleAsteroid : MonoBehaviour
         rbody.AddForce(new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), Random.Range(-10f, 10f)));
         rbody.AddTorque(new Vector3(Random.Range(-5f, 50f), Random.Range(-5f, 50f), Random.Range(-5f, 50f)));
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Astronaut"))
+        if (collision.gameObject.CompareTag("Astronaut"))
         {
             FindObjectOfType<GameManager>().EndGame(); // maybe do this different, not with find
         }
