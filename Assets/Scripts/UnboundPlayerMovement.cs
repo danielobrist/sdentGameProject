@@ -112,7 +112,7 @@ public class UnboundPlayerMovement : MonoBehaviour
                 SceneManager.LoadScene("MainMenu");
             }
         }
-        if (energy > 0 && !controlLost)
+        if (energy > 0 && !outOfEnergy)
         {
             if (Input.GetKey("w")) // UP
             {
@@ -313,6 +313,7 @@ public class UnboundPlayerMovement : MonoBehaviour
 
     public void addNitrogen()
     {
+        outOfEnergy = false;
         energy = 100;
         ShowBottleLevel(nitro, energy);
     }
