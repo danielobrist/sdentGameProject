@@ -703,6 +703,7 @@ GameObject:
   - component: {fileID: 770375757296790916}
   - component: {fileID: 1086592978362356567}
   - component: {fileID: 7103215241674417539}
+  - component: {fileID: 1008467522587172861}
   m_Layer: 0
   m_Name: MainMenuAstronaut
   m_TagString: Untagged
@@ -790,6 +791,25 @@ MonoBehaviour:
   thrusterRight: {fileID: 112984847141002976}
   thrusterLeft: {fileID: 551796061632093277}
   thrusterTop: {fileID: 3495588380969114587}
+--- !u!95 &1008467522587172861
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770375756462331763}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b8205323d5c0f4213adb2111cce8d896, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &770375756462331765
 GameObject:
   m_ObjectHideFlags: 0
