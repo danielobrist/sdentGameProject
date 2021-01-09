@@ -18,6 +18,7 @@ public class IdleAsteroid : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Astronaut"))
         {
+            GetComponent<AudioSource>().Play();
             FindObjectOfType<GameManager>().EndGame(); // maybe do this different, not with find
         }
     }

@@ -310,7 +310,7 @@ using Random = UnityEngine.Random;
              {
                  alive = false;
                 // Back to Startmenu
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("Game_Over");
              }
          }
      }

@@ -5,6 +5,10 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Collectable.cs" t="Include" />
+        <e p="CollectableGenerator.cs" t="Include" />
+        <e p="CollectableUIMove.cs" t="Include" />
+        <e p="CollectibleType.cs" t="Include" />
         <e p="Editor" t="Include">
           <e p="AsteroidEditor.cs" t="Include" />
         </e>
@@ -19,6 +23,20 @@
             </e>
           </e>
         </e>
+        <e p="Fonts" t="Include">
+          <e p="cubic" t="Include">
+            <e p="Licence information.txt" t="Include" />
+          </e>
+          <e p="Nova_Flat" t="Include">
+            <e p="OFL.txt" t="Include" />
+          </e>
+          <e p="techno_hideo" t="Include">
+            <e p="Font Info.txt" t="Include" />
+          </e>
+        </e>
+        <e p="ParticleGenerator.cs" t="Include" />
+        <e p="PlanetGenerator.cs" t="Include" />
+        <e p="ScaledCamera.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Asteroid" t="Include">
             <e p="Asteroid.cs" t="Include" />
@@ -39,12 +57,14 @@
           <e p="GameManager.cs" t="Include" />
           <e p="PlayerFollow.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
+          <e p="RestartGame.cs" t="Include" />
           <e p="SetRandomSeed.cs" t="Include" />
           <e p="SpaceGenerator.cs" t="Include" />
           <e p="StartNewGame.cs" t="Include" />
           <e p="ThrusterControl.cs" t="Include" />
           <e p="UnboundPlayerMovement.cs" t="Include" />
         </e>
+        <e p="SunGenerator.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!95 &1703179536
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7874962848856358906}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6988cfa349afd4ba39e3864361b080c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &7492178162252097673
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 770375756462331763, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_Name
+      value: Astronaut
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375756462492499, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375756462492499, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375756462492499, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375756462492499, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.3741903
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375756462492499, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.8275559
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375756462492499, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.40299004
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375756462492499, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.112835966
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375756462492499, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375756462492499, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -48.715
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375756462492499, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 169.977
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375756462492499, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 53.208
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375757296790912, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375757296790916, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: oxygen
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 770375757296790916, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+      propertyPath: energy_step
+      value: 0.1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+--- !u!1 &7874962848856358906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 770375756462331763, guid: 82cc326d7dc9ff948ac5f40b0dcb009c, type: 3}
+  m_PrefabInstance: {fileID: 7492178162252097673}
+  m_PrefabAsset: {fileID: 0}

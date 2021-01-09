@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator RestartLevel()
     {
+
         // slow time
         Time.timeScale = 1f / deathSlomoFactor;
         Time.fixedDeltaTime = Time.fixedDeltaTime / deathSlomoFactor;
@@ -24,6 +25,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         Time.fixedDeltaTime = Time.fixedDeltaTime * deathSlomoFactor;
 
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Game_Over");
     }
 }
