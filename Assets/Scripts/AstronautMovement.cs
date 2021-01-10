@@ -69,11 +69,15 @@ using Random = UnityEngine.Random;
         {
             energy_step = 0.01f;
         }
+        //- INIT Variables
         controlLost = false;
         outOfEnergy = false;
         PlayerScore.Alive = true;
         PlayerScore.Score = 0;
-
+        energy = 100f;
+        oxy_energy = 100f;
+        controlLost = false;
+        
         rbody = GetComponent<Rigidbody>();
         rbody.AddForce(Vector3.forward * forwardVelocity);
         rbody.AddForce(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f)) * forceMultiplier); // Kraft (in 3D) anwenden um Bewegung zu starten

@@ -20,9 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f16d3b9-333b-4827-bff8-0991a3637f88" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sdentGameProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThrusterControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThrusterControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnboundPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnboundPlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AstronautMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AstronautMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +54,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RestartGame.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UnboundPlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ThrusterControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AstronautMovement.cs" />
       </list>
     </option>
   </component>
@@ -117,6 +118,7 @@
       <workItem from="1609383700874" duration="602000" />
       <workItem from="1609980448837" duration="7639000" />
       <workItem from="1610287744345" duration="2223000" />
+      <workItem from="1610310984197" duration="1881000" />
     </task>
     <servers />
   </component>
