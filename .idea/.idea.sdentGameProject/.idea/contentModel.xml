@@ -57,6 +57,7 @@
           <e p="GameManager.cs" t="Include" />
           <e p="PlayerFollow.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
+          <e p="PlayerScore.cs" t="Include" />
           <e p="RestartGame.cs" t="Include" />
           <e p="SetRandomSeed.cs" t="Include" />
           <e p="SpaceGenerator.cs" t="Include" />

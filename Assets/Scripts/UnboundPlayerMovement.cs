@@ -1,4 +1,4 @@
-﻿﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
@@ -41,7 +41,7 @@ using Random = UnityEngine.Random;
     private bool controlLost = false;
 
     //- Energy (Nitro) Level
-    public float energy = 100f;
+    public static float energy = 100f;
     public float energy_step = 0.1f;
     private float energy_cont = 100f;
     public TextMesh nitroOutText;
@@ -122,7 +122,6 @@ using Random = UnityEngine.Random;
             forceMultiplier = baseForce * boostMultiplier;
             //- Boost visualisation
             setBoosterView(0.4f);
-            
         } else
         {
             forceMultiplier = baseForce;
@@ -189,13 +188,12 @@ using Random = UnityEngine.Random;
             oxy_energy = oxy_energy - oxy_step;
             
             //- Calculate Score
-            scoreINTTXT += (int)(scoreCount * scoreLevel);
-            if (alive)
+            if (PlayerScore.Alive)
             {
-                scoreINTTXT += (int)(scoreCount * scoreLevel);
+                PlayerScore.Score += (int)(scoreCount * scoreLevel);
             }
 
-            scoreText.text = "Score: " + scoreINTTXT;
+            scoreText.text = "Score: " + PlayerScore.Score;
 
         }
         //- Reset Control-Value
@@ -336,7 +334,7 @@ using Random = UnityEngine.Random;
          {
              if (bottle.gameObject.name.Equals("Oxygen_Bottle"))
              {
-                 alive = false;
+                 PlayerScore.Alive = false;
                 // Back to Startmenu
                 SceneManager.LoadScene("Game_Over");
              }
