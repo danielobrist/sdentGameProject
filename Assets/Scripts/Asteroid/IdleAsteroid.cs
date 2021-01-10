@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class IdleAsteroid : MonoBehaviour
 {
@@ -19,6 +17,7 @@ public class IdleAsteroid : MonoBehaviour
         if (collision.gameObject.CompareTag("Astronaut"))
         {
             GetComponent<AudioSource>().Play();
+            PlayerScore.Alive = false;
             FindObjectOfType<GameManager>().EndGame(); // maybe do this different, not with find
         }
     }
