@@ -64,13 +64,18 @@ using Random = UnityEngine.Random;
     private int scoreINTTXT = 0;
     private bool alive = true;
     
-
+    //- Pickup Bottle Scaling
     public float pickupScaleFactor = 1.1f;
     public float pickupScaleDuration = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (SystemInfo.supportsAccelerometer)
+        {
+            energy_step = 0.01f;
+        }
+
         rbody = GetComponent<Rigidbody>(); //Abholen von Astronaut
         rbody.AddForce(Vector3.forward * forwardVelocity);
         rbody.AddForce(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f)) * forceMultiplier); // Kraft (in 3D) anwenden um Bewegung zu starten
@@ -85,11 +90,33 @@ using Random = UnityEngine.Random;
         thrusterTop = GameObject.Find("ThrusterTop");
     }
 
-
     // Update is called once per frame
     void Update()
     {
-       
+        if (SystemInfo.supportsAccelerometer)
+        {
+            //Accelerometer controls
+            if (Input.acceleration.y + 0.5f > 0.1f)
+            {
+                moveUp = true;
+            }
+            if (Input.acceleration.y + 0.5f < -0.1f)
+            {
+                moveDown = true;
+            }
+            if (Input.acceleration.x < -0.1f)
+            {
+                moveLeft = true;
+            }
+            if (Input.acceleration.x > 0.1f)
+            {
+                moveRight = true;
+            }
+        }
+            
+
+
+        //Keyboard Controls
         if (Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Space))
         {
             forceMultiplier = baseForce * boostMultiplier;
@@ -105,7 +132,6 @@ using Random = UnityEngine.Random;
             }
         }
 
-        
         if (Input.GetKey(KeyCode.Escape)) // Escape
         {
             // Back to Startmenu or Exit Game
