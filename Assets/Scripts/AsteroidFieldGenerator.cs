@@ -31,12 +31,13 @@ public class AsteroidFieldGenerator : MonoBehaviour
         }
 
         Vector3 startingScale = Vector3.zero;
-        Vector3 scaledScale = asteroidPrefab.transform.localScale * Random.Range(0.5f, 5f);
+        float scaleFactor = Random.Range(0.5f, 5f);
+        Vector3 scaledScale = asteroidPrefab.transform.localScale * scaleFactor;
         float i = 0f;
         while (i < 2.0f)
         {
             i += Time.deltaTime;
-            clone.transform.localScale = Vector3.Lerp(startingScale, scaledScale, i);
+            clone.transform.localScale = Vector3.Lerp(startingScale, scaledScale, i * 1/scaleFactor);
             yield return null;
         }
         yield return null;
