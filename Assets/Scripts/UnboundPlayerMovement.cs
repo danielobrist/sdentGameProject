@@ -41,7 +41,7 @@ using Random = UnityEngine.Random;
     private bool controlLost = false;
 
     //- Energy (Nitro) Level
-    public float energy = 100f;
+    public static float energy = 100f;
     public float energy_step = 0.1f;
     private float energy_cont = 100f;
     public TextMesh nitroOutText;
