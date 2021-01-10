@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4326625159393114489}
   - component: {fileID: 4326625159393114486}
   - component: {fileID: 4326625159393114487}
-  - component: {fileID: 7997763346780892394}
   - component: {fileID: 564856716406750117}
   - component: {fileID: 7857579740934862833}
   - component: {fileID: -7896115020567533134}
+  - component: {fileID: 3705352023627753450}
   m_Layer: 0
   m_Name: NitroObject
   m_TagString: Collectable
@@ -99,20 +99,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7997763346780892394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4326625159393114484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 321bf5fe29be2574b98df5e0d3613314, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollectType: {fileID: 4514537769250559626, guid: 74c8361de228f624581a4aefd685c675, type: 3}
-  ResourceType: Nitrogen
 --- !u!114 &564856716406750117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,3 +223,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3705352023627753450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326625159393114484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3f18ecbba60bd49b78d6ae777e16a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollectType: {fileID: 0}
+  ResourceType: Nitrogen

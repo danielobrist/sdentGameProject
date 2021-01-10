@@ -15,6 +15,31 @@ public class AsteroidFieldGenerator : MonoBehaviour
             GameObject clone = Instantiate(asteroidPrefab) as GameObject;
             clone.gameObject.tag = "Asteroid";
             clone.transform.position = new Vector3(transform.position.x + Random.Range(-spawnArea, spawnArea), transform.position.y + Random.Range(-spawnArea, spawnArea), transform.position.z + Random.Range(-spawnArea, spawnArea));
+            clone.transform.localScale = Vector3.zero;
+            StartCoroutine("SmoothScaleIn", clone);
         }
+    }
+
+    IEnumerator SmoothScaleIn(GameObject clone)
+    {
+        //Randomize scale up starting time to minimize pop up effect
+        float randomTimer = Random.Range(0f, 1f);
+        while (randomTimer > 0f)
+        {
+            randomTimer -= Time.deltaTime;
+            yield return null;
+        }
+
+        Vector3 startingScale = Vector3.zero;
+        Vector3 scaledScale = asteroidPrefab.transform.localScale * Random.Range(0.5f, 5f);
+        float i = 0f;
+        while (i < 2.0f)
+        {
+            i += Time.deltaTime;
+            clone.transform.localScale = Vector3.Lerp(startingScale, scaledScale, i);
+            yield return null;
+        }
+        yield return null;
+
     }
 }

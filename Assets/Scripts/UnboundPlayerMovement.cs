@@ -28,7 +28,7 @@ using Random = UnityEngine.Random;
     public GameObject thrusterTop;
     private float thrusterxScale = 0.21418f;
     
-    private Rigidbody rbody; //Astronaut RigidBody -> Fester Körper mit Physikalischen verhalten
+    private Rigidbody rbody;
 
     private bool moveUp;
     private bool moveDown;
@@ -36,23 +36,20 @@ using Random = UnityEngine.Random;
     private bool moveRight;
     private bool rotateLeft;
     private bool rotateRight;
-    private bool boost;
     private bool outOfEnergy;
-    private bool controlLost = false;
+    private bool controlLost;
 
     //- Energy (Nitro) Level
     public static float energy = 100f;
     public float energy_step = 0.1f;
-    private float energy_cont = 100f;
     public TextMesh nitroOutText;
 
     //- Oxygen Level
     public float oxy_energy = 100f;
     public float oxy_step = 0.5f;
-    private float oxygen_cont = 100f;
     public TextMesh oxygenOutText;
 
-    //- Time spend
+    //- Time spent
     private DateTime startTime;
     private int time_cont = 0;
 
@@ -61,25 +58,25 @@ using Random = UnityEngine.Random;
     //- Score View
     private int scoreCount = 10;
     private int scoreLevel = 1;
-    private int scoreINTTXT = 0;
-    private bool alive = true;
     
-    //- Pickup Bottle Scaling
+    //- Pickup Bottle Scaling Effect
     public float pickupScaleFactor = 1.1f;
     public float pickupScaleDuration = 1f;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (SystemInfo.supportsAccelerometer)
         {
             energy_step = 0.01f;
         }
+        controlLost = false;
+        outOfEnergy = false;
+        PlayerScore.Alive = true;
+        PlayerScore.Score = 0;
 
-        rbody = GetComponent<Rigidbody>(); //Abholen von Astronaut
+        rbody = GetComponent<Rigidbody>();
         rbody.AddForce(Vector3.forward * forwardVelocity);
         rbody.AddForce(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f)) * forceMultiplier); // Kraft (in 3D) anwenden um Bewegung zu starten
-        // rbody.AddRelativeTorque(new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f))); // Rotierung
         
         startTime = DateTime.Now;
 
@@ -93,9 +90,9 @@ using Random = UnityEngine.Random;
     // Update is called once per frame
     void Update()
     {
+        //Accelerometer controls
         if (SystemInfo.supportsAccelerometer)
         {
-            //Accelerometer controls
             if (Input.acceleration.y + 0.5f > 0.1f)
             {
                 moveUp = true;
@@ -115,22 +112,7 @@ using Random = UnityEngine.Random;
         }
             
 
-
         //Keyboard Controls
-        if (Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Space))
-        {
-            forceMultiplier = baseForce * boostMultiplier;
-            //- Boost visualisation
-            setBoosterView(0.4f);
-        } else
-        {
-            forceMultiplier = baseForce;
-            if (thrusterxScale > 0.21418f)
-            {
-                setBoosterView(0.21418f);
-            }
-        }
-
         if (Input.GetKey(KeyCode.Escape)) // Escape
         {
             // Back to Startmenu or Exit Game
@@ -143,6 +125,7 @@ using Random = UnityEngine.Random;
                 SceneManager.LoadScene("MainMenu");
             }
         }
+
         if (energy > 0 && !outOfEnergy)
         {
             if (Input.GetKey("w")) // UP
@@ -173,35 +156,25 @@ using Random = UnityEngine.Random;
         {
             outOfEnergy = true;
         }
-          
-        //- Update Time
-        var spendTime = DateTime.Now.Subtract(startTime);
 
-        if (time_cont < spendTime.Seconds)
+        //- Boost visualisation
+        if (Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Space))
         {
-            // Debug.Log(setZero(spendTime.Hours)+":"+setZero(spendTime.Minutes)+":"+setZero(spendTime.Seconds));
-
-            timeText.text = setZero(spendTime.Hours) + ":" + 
-                            setZero(spendTime.Minutes) + ":" +
-                            setZero(spendTime.Seconds);
-
-            oxy_energy = oxy_energy - oxy_step;
-            
-            //- Calculate Score
-            if (PlayerScore.Alive)
-            {
-                PlayerScore.Score += (int)(scoreCount * scoreLevel);
-            }
-
-            scoreText.text = "Score: " + PlayerScore.Score;
-
+            forceMultiplier = baseForce * boostMultiplier;
+            setBoosterView(0.4f);
         }
-        //- Reset Control-Value
-        time_cont = spendTime.Seconds;
+        else
+        {
+            forceMultiplier = baseForce;
+            if (thrusterxScale > 0.21418f)
+            {
+                setBoosterView(0.21418f);
+            }
+        }
 
-        // Update Bottle Level
-        ShowBottleLevel(nitro, energy);
-        ShowBottleLevel(oxygen, oxy_energy);
+        UpdateScoreDisplay();
+        UpdateBottleLevel(nitro, energy);
+        UpdateBottleLevel(oxygen, oxy_energy);
     }
 
     // Called every physics update
@@ -211,47 +184,39 @@ using Random = UnityEngine.Random;
         if (moveUp)
         {
             rbody.AddForce(Vector3.up * forceMultiplier);
-            //- Energy steps
             energy -= energy_step;
             moveUp = false;
         }
         if (moveDown)
         {
             rbody.AddForce(Vector3.down * forceMultiplier);
-            //- Energy steps
             energy -= energy_step;
             moveDown = false;
         }
         if (moveLeft)
         {
             rbody.AddForce(Vector3.left * forceMultiplier);
-            //- Energy steps
             energy -= energy_step;
             moveLeft = false;
         }
         if (moveRight)
         {
             rbody.AddForce(Vector3.right * forceMultiplier);
-            //- Energy steps
             energy -= energy_step;
             moveRight = false;
         }
         if (rotateLeft)
         {
             rbody.AddRelativeTorque(Vector3.up * 0.1f);
-            //- Energy steps
             energy -= energy_step;
             rotateLeft = false;
         }
         if (rotateRight)
         {
             rbody.AddRelativeTorque(Vector3.down * 0.1f);
-            //- Energy steps
             energy -= energy_step;
             rotateRight = false;
         }
-
-        
 
         if (outOfEnergy && !controlLost)
         {
@@ -260,7 +225,7 @@ using Random = UnityEngine.Random;
         }
     }
 
-    private void ShowBottleLevel(GameObject bottle,float value)
+    private void UpdateBottleLevel(GameObject bottle,float value)
      {
          if (bottle.gameObject.name.Equals("Oxygen_Bottle"))
          {
@@ -323,7 +288,6 @@ using Random = UnityEngine.Random;
              if (value < 10)
              {
                  bottle.transform.Find("level.001").gameObject.SetActive(false);
- 
              }
              if (value < 4)
              {
@@ -335,13 +299,35 @@ using Random = UnityEngine.Random;
              if (bottle.gameObject.name.Equals("Oxygen_Bottle"))
              {
                  PlayerScore.Alive = false;
-                // Back to Startmenu
-                SceneManager.LoadScene("Game_Over");
+                 SceneManager.LoadScene("Game_Over");
              }
          }
      }
     
-    
+    private void UpdateScoreDisplay()
+    {
+        var spendTime = DateTime.Now.Subtract(startTime);
+
+        if (time_cont < spendTime.Seconds)
+        {
+            timeText.text = setZero(spendTime.Hours) + ":" +
+                            setZero(spendTime.Minutes) + ":" +
+                            setZero(spendTime.Seconds);
+
+            oxy_energy = oxy_energy - oxy_step;
+
+            //- Calculate Score
+            if (PlayerScore.Alive)
+            {
+                PlayerScore.Score += (int)(scoreCount * scoreLevel);
+            }
+
+            scoreText.text = "Score: " + PlayerScore.Score;
+
+        }
+        //- Reset Control-Value
+        time_cont = spendTime.Seconds;
+    }
 
 
     private String setZero(int input)
@@ -357,8 +343,8 @@ using Random = UnityEngine.Random;
     public void addOxygen()
     {
         oxy_energy = 100;
-        ShowBottleLevel(oxygen, oxy_energy);
-        StartCoroutine("ScaleUpDown", oxygen);
+        UpdateBottleLevel(oxygen, oxy_energy);
+        StartCoroutine("ScaleBottleUpDown", oxygen);
         scoreLevel++;
     }
 
@@ -366,8 +352,8 @@ using Random = UnityEngine.Random;
     {
         outOfEnergy = false;
         energy = 100;
-        ShowBottleLevel(nitro, energy);
-        StartCoroutine("ScaleUpDown", nitro);
+        UpdateBottleLevel(nitro, energy);
+        StartCoroutine("ScaleBottleUpDown", nitro);
         scoreLevel++;
     }
     
@@ -381,7 +367,7 @@ using Random = UnityEngine.Random;
         thrusterTop.gameObject.transform.localScale    = new Vector3(ttxScale,0.21418f,0.1018019f);
     }
 
-    IEnumerator ScaleUpDown(GameObject bottle)
+    IEnumerator ScaleBottleUpDown(GameObject bottle)
     {
         Vector3 startingScale = nitro.transform.localScale;
         Vector3 scaledScale = startingScale * pickupScaleFactor;

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6413184836901256345}
   - component: {fileID: 6413184836901256344}
   - component: {fileID: 3832938101222003282}
-  - component: {fileID: 7434755821360694981}
   - component: {fileID: 5459768697566824618}
+  - component: {fileID: 849560196170187609}
   m_Layer: 0
   m_Name: OxygenObject
   m_TagString: Collectable
@@ -110,20 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ad81c8626602647854b661d1576a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7434755821360694981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6413184836901256347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 321bf5fe29be2574b98df5e0d3613314, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollectType: {fileID: 0}
-  ResourceType: Oxygen
 --- !u!54 &5459768697566824618
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,3 +126,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &849560196170187609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6413184836901256347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3f18ecbba60bd49b78d6ae777e16a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResourceType: Oxygen

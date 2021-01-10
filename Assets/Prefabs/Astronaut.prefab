@@ -25124,16 +25124,20 @@ MonoBehaviour:
   torque: 0
   nitro: {fileID: 0}
   oxygen: {fileID: 0}
-  outtext: {fileID: 0}
+  timeText: {fileID: 0}
+  scoreText: {fileID: 0}
   thrusterB1: {fileID: 0}
   thrusterB2: {fileID: 0}
   thrusterRight: {fileID: 0}
   thrusterLeft: {fileID: 0}
   thrusterTop: {fileID: 0}
-  energy: 100
   energy_step: 0.1
+  nitroOutText: {fileID: 0}
   oxy_energy: 100
   oxy_step: 1
+  oxygenOutText: {fileID: 0}
+  pickupScaleFactor: 1.1
+  pickupScaleDuration: 1
 --- !u!114 &4623183500875976677
 MonoBehaviour:
   m_ObjectHideFlags: 0

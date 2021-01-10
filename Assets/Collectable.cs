@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
@@ -19,12 +17,12 @@ public class Collectable : MonoBehaviour
         if (other.gameObject.CompareTag("Astronaut"))
         {
             
-            if (gameObject.GetComponent<CollectibleType>().ResourceType.Equals("Oxygen"))
+            if (gameObject.GetComponent<CollectableType>().ResourceType.Equals("Oxygen"))
             {
                 other.gameObject.GetComponent<UnboundPlayerMovement>().addOxygen();
             }
 
-            if (gameObject.GetComponent<CollectibleType>().ResourceType.Equals("Nitrogen"))
+            if (gameObject.GetComponent<CollectableType>().ResourceType.Equals("Nitrogen"))
             {
                 other.gameObject.GetComponent<UnboundPlayerMovement>().addNitrogen();
             }

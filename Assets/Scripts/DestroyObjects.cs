@@ -6,6 +6,6 @@ public class DestroyObjects : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);  // just destroys all other trigger gameobj atm
+        Destroy(other.gameObject);
     }
 }

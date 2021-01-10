@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectibleType : MonoBehaviour
+public class CollectableType : MonoBehaviour
 {
-    public GameObject CollectType;
     public string ResourceType;
 
     private void OnTriggerEnter(Collider other)

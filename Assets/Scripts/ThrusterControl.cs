@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ThrusterControl : MonoBehaviour
 {
@@ -10,13 +8,6 @@ public class ThrusterControl : MonoBehaviour
     public ParticleSystem thrusterLeft;
     public ParticleSystem thrusterTop;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (UnboundPlayerMovement.energy > 0)
