@@ -19,12 +19,12 @@ public class Collectable : MonoBehaviour
             
             if (gameObject.GetComponent<CollectableType>().ResourceType.Equals("Oxygen"))
             {
-                other.gameObject.GetComponent<UnboundPlayerMovement>().addOxygen();
+                other.gameObject.GetComponent<AstronautMovement>().addOxygen();
             }
 
             if (gameObject.GetComponent<CollectableType>().ResourceType.Equals("Nitrogen"))
             {
-                other.gameObject.GetComponent<UnboundPlayerMovement>().addNitrogen();
+                other.gameObject.GetComponent<AstronautMovement>().addNitrogen();
             }
 
             //Destroy picked up collectable

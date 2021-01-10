@@ -15,7 +15,7 @@ public class IdleAsteroid : MonoBehaviour
         {
             GetComponent<AudioSource>().Play();
             PlayerScore.Alive = false;
-            FindObjectOfType<GameManager>().EndGame(); // maybe do this different, not with Find
+            FindObjectOfType<GameManager>().EndGame(); // maybe do this with static class instead of Find
         }
     }
 }

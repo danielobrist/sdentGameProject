@@ -10,7 +10,7 @@ public class ThrusterControl : MonoBehaviour
 
     void Update()
     {
-        if (UnboundPlayerMovement.energy > 0)
+        if (AstronautMovement.energy > 0)
         {
             if (Input.GetKey("w"))
             {
