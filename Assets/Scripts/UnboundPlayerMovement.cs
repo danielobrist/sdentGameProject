@@ -64,8 +64,10 @@ using Random = UnityEngine.Random;
     private int scoreINTTXT = 0;
     private bool alive = true;
     
-    
-    
+
+    public float pickupScaleFactor = 1.1f;
+    public float pickupScaleDuration = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -332,6 +334,7 @@ using Random = UnityEngine.Random;
     {
         oxy_energy = 100;
         ShowBottleLevel(oxygen, oxy_energy);
+        StartCoroutine("ScaleUpDown", oxygen);
         scoreLevel++;
     }
 
@@ -340,6 +343,7 @@ using Random = UnityEngine.Random;
         outOfEnergy = false;
         energy = 100;
         ShowBottleLevel(nitro, energy);
+        StartCoroutine("ScaleUpDown", nitro);
         scoreLevel++;
     }
     
@@ -352,5 +356,28 @@ using Random = UnityEngine.Random;
         thrusterLeft.gameObject.transform.localScale   = new Vector3(ttxScale,0.21418f,0.1018019f);
         thrusterTop.gameObject.transform.localScale    = new Vector3(ttxScale,0.21418f,0.1018019f);
     }
+
+    IEnumerator ScaleUpDown(GameObject bottle)
+    {
+        Vector3 startingScale = nitro.transform.localScale;
+        Vector3 scaledScale = startingScale * pickupScaleFactor;
+        float i = 0f;
+        while (i < 1.0f)
+        {
+            i += Time.deltaTime * 10f;
+            bottle.transform.localScale = Vector3.Lerp(startingScale, scaledScale, i);
+            yield return null;
+        }
+        i = 0f;
+        while (i < 1.0f)
+        {
+            i += Time.deltaTime * 7f;
+            bottle.transform.localScale = Vector3.Lerp(scaledScale, startingScale, i);
+            yield return null;
+        }
+        yield return null;
+
+    }
+
 }
 

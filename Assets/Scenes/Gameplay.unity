@@ -1029,7 +1029,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1184188352}
   - component: {fileID: 1184188351}
-  - component: {fileID: 1184188350}
   - component: {fileID: 1184188353}
   m_Layer: 8
   m_Name: Camera (1)
@@ -1038,14 +1037,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1184188350
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1184188349}
-  m_Enabled: 1
 --- !u!20 &1184188351
 Camera:
   m_ObjectHideFlags: 0
@@ -2057,6 +2048,10 @@ PrefabInstance:
       propertyPath: oxygenOutText
       value: 
       objectReference: {fileID: 198248393}
+    - target: {fileID: 7866046067208753597, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
+      propertyPath: pickupScaleFactor
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7866046067208753598, guid: dcee694cd691d12458230f71ddf9328c, type: 3}
       propertyPath: m_Name
       value: Astronaut

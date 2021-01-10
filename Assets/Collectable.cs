@@ -18,7 +18,7 @@ public class Collectable : MonoBehaviour
 
         if (other.gameObject.CompareTag("Astronaut"))
         {
-            Debug.Log("Collectable");
+            
             if (gameObject.GetComponent<CollectibleType>().ResourceType.Equals("Oxygen"))
             {
                 other.gameObject.GetComponent<UnboundPlayerMovement>().addOxygen();
