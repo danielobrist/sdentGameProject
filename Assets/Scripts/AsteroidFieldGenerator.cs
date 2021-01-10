@@ -7,6 +7,10 @@ public class AsteroidFieldGenerator : MonoBehaviour
     public GameObject asteroidPrefab;
     public int numberOfAsteroids = 1000;
     public float spawnArea = 400;
+    public float minAsteroidFactor = 0.5f;
+    public float maxAsteroidFactor = 10.0f;
+
+    private float scaleInTime = 2.0f;
 
     public void SpawnAsteroids()
     {
@@ -31,10 +35,10 @@ public class AsteroidFieldGenerator : MonoBehaviour
         }
 
         Vector3 startingScale = Vector3.zero;
-        float scaleFactor = Random.Range(0.5f, 5f);
+        float scaleFactor = Random.Range(minAsteroidFactor, maxAsteroidFactor);
         Vector3 scaledScale = asteroidPrefab.transform.localScale * scaleFactor;
         float i = 0f;
-        while (i < 2.0f)
+        while (i < scaleInTime)
         {
             i += Time.deltaTime;
             clone.transform.localScale = Vector3.Lerp(startingScale, scaledScale, i * 1/scaleFactor);

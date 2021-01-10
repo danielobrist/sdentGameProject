@@ -9,6 +9,7 @@ public class CollectableGenerator : MonoBehaviour
     public int numberOfCollectables = 20;
     public float spawnArea = 20;
 
+    private float scaleInTime = 2.0f;
     public void SpawnCollectables()
     {
         for (int i = 0; i < numberOfCollectables; i++)
@@ -40,7 +41,7 @@ public class CollectableGenerator : MonoBehaviour
         Vector3 startingScale = Vector3.zero;
         Vector3 scaledScale = collectable1.transform.localScale;
         float i = 0f;
-        while (i < 3.0f)
+        while (i < scaleInTime)
         {
             i += Time.deltaTime;
             clone.transform.localScale = Vector3.Lerp(startingScale, scaledScale, i);
