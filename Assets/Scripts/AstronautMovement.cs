@@ -161,10 +161,12 @@ using Random = UnityEngine.Random;
             outOfEnergy = true;
         }
 
-        //- Boost visualisation
+        //- Boost visualisation temporarly disabled
+        /**
         if (Input.GetKeyDown(KeyCode.LeftShift) | Input.GetKeyDown(KeyCode.Space))
         {
             forceMultiplier = baseForce * boostMultiplier;
+            if ()
             setBoosterView(0.4f);
         }
         else
@@ -175,6 +177,10 @@ using Random = UnityEngine.Random;
                 setBoosterView(0.21418f);
             }
         }
+        **/
+
+        forceMultiplier = baseForce;
+        
 
         UpdateScoreDisplay();
         UpdateBottleLevel(nitro, energy);
